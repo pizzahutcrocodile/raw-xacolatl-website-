@@ -1,0 +1,113 @@
+.site {
+	display: grid;
+	grid-template-columns:  1fr 1fr 1fr;
+	grid-template-rows: auto 1fr 1fr 1fr;
+	grid-template-areas:
+	"masthead masthead masthead"
+	"title title title  "
+	"main main sidebar"
+	"main main sidebar"
+	"footer footer"
+}
+@media screen and (min-width: 600px) {
+
+
+
+.site {
+
+	grid-template-columns: 1fr 1fr 1fr;
+	
+
+	grid-template-areas:
+	"masthead masthead masthead"
+	"title title title"
+	"main main sidebar"
+	"main main sidebar"
+	"footer footer footer"
+
+}
+}
+.masthead {
+		grid-area:masthead;
+}
+
+.page-title {
+grid-area:title;
+
+font-family: 'Satisfy', cursive;
+color:#fff;
+display:flex;
+justify-content: center;
+align-content: center;
+position: relative;
+z-index: 1;
+padding:3em;
+}
+
+
+/* background image */
+.page-title:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(images/cacao.jpg); center center;
+   filter:blur(0px);
+}
+
+.main-content {
+grid-area:main;
+
+display:grid;
+grid-template-columns:  repeat(6,1fr);
+grid-template-rows: row: repeat(6,1fr);
+
+
+}
+#fifty{
+	grid-area:fifty;
+}
+
+
+
+.sidebar {
+grid-area:sidebar;
+}
+
+.footer-content {
+grid-area:footer;
+}
+
+nav{
+	background: #333;
+	box-sizing: border-box;
+	margin:0px;
+	padding:0px;
+}
+
+nav ul{
+	list-style-type: none;
+}
+
+nav a{
+	text-decoration:none;
+	text-align: center;
+	color: #fff;
+	display: block;
+	padding: 10px;
+}
+
+nav a:hover{
+	background-color:#555;
+}
+
+nav ul{
+	display:flex;
+}
+
+nav li{
+	flex: 1 1 0;
+}
