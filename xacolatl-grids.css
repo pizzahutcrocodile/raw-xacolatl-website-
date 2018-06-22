@@ -1,41 +1,44 @@
 .site {
+	height: 100vh;
 	display: grid;
 	grid-template-columns:  1fr 1fr 1fr;
 	grid-template-rows: auto 1fr 1fr 1fr;
-	grid-template-areas:
-	"masthead masthead masthead"
-	"title title title  "
-	"main main sidebar"
-	"main main sidebar"
-	"footer footer"
-}
-@media screen and (min-width: 600px) {
-
-
-
-.site {
-
-	grid-template-columns: 1fr 1fr 1fr;
-	
 
 	grid-template-areas:
 	"masthead masthead masthead"
 	"title title title"
-	"main main sidebar"
-	"main main sidebar"
-	"footer footer footer"
-
+	"main main main"
+	"footer footer footer";
 }
+html,body{
+      height: 100%;
+    }
+
+*{
+	box-sizing: border-box;
+}
+body{
+	margin:0;
+	padding:0;
 }
 .masthead {
+
+
 		grid-area:masthead;
+  	background: #333;
+
 }
 
-.page-title {
-grid-area:title;
+.item {
+	display:flex;
+	justify-content: flex-end;
+}
 
+.title {
+grid-area:title;
+color:white;
 font-family: 'Satisfy', cursive;
-color:#fff;
+background-color: color:#fff;
 display:flex;
 justify-content: center;
 align-content: center;
@@ -46,7 +49,7 @@ padding:3em;
 
 
 /* background image */
-.page-title:before {
+.title:before {
     content: "";
     position: absolute;
     z-index: -1;
@@ -58,56 +61,141 @@ padding:3em;
    filter:blur(0px);
 }
 
-.main-content {
-grid-area:main;
-
-display:grid;
-grid-template-columns:  repeat(6,1fr);
-grid-template-rows: row: repeat(6,1fr);
-
-
-}
-#fifty{
-	grid-area:fifty;
-}
-
-
-
-.sidebar {
-grid-area:sidebar;
-}
-
-.footer-content {
+.footer {
 grid-area:footer;
+
 }
 
+body {
+  padding: 1rem;
+}
+
+/* Just for the fallback layout */
+/* product gallery */
+ .main {
+  max-width: 500px;
+  margin: 0 auto;
+
+}
+article {
+  margin: 1rem 0;
+}
+
+/* Now lets do a Grid-based layout */
+
+@supports (display: grid) {
+  .main {
+    max-width: 10000px;
+    margin: 0;
+		grid-area:main;
+  }
+  article {
+    margin: 0;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 1rem;
+  }
+	img{
+		width:300px;
+		height:300px;
+
+	}
+
+}
+
+.main {
+  font-family: Avenir, Roboto, Helvetica, san-serif;
+  font-size: 80%;
+}
+.sale-item {
+  display: flex;
+  flex-flow: column;
+  border:  1px solid black;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.sale-item > h1 {
+  margin: 1rem 1rem 0;
+}
+.sale-item > ul {
+  margin: 0 0 1rem;
+}
+.sale-item > p {
+  margin: 0.25em 1rem 1rem;
+}
+.sale-item > img {
+  order: -1;
+  align-self: center;
+}
+.sale-item > button {
+  margin-top: auto;
+  background: teal;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+}
+/* product gallery end */
+
+
+
+
+
+
+
+
+ a{
+	 text-decoration: none;
+ }
 nav{
-	background: #333;
-	box-sizing: border-box;
-	margin:0px;
-	padding:0px;
+
 }
 
 nav ul{
 	list-style-type: none;
+
+
 }
 
 nav a{
 	text-decoration:none;
-	text-align: center;
+  padding-left:  1em;
+	padding-right: 1em;
+	font-size: 1.5em;
+	align-text:center;
+
 	color: #fff;
-	display: block;
-	padding: 10px;
+
 }
 
 nav a:hover{
-	background-color:#555;
+	/* background-color:#555; */
 }
 
-nav ul{
-	display:flex;
-}
+
 
 nav li{
-	flex: 1 1 0;
+
+}
+/*
+@media screen and (min-width: 600px) {
+
+
+
+.site {
+
+	grid-template-columns: 1fr 1fr 1fr;
+
+
+	grid-template-areas:
+	"masthead masthead masthead"
+	"title title title"
+	"main main main"
+	"main main main"
+	"footer footer footer"
+
+} */
 }
